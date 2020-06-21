@@ -74,7 +74,7 @@ ul {
   flex-direction: row;
   justify-content: space-evenly;
   padding: 0 5%;
-  font-family: 'Barlow-condensed', sans-serif;
+  font-family: 'Barlow', sans-serif;
   text-transform: uppercase;
   font-size: 0.7em;
   font-weight: 700;
@@ -164,6 +164,7 @@ h1 {
   padding-right: 45%;
   color: var(--Dark-Grayish-Blue);
   place-self: end;
+  justify-self: start;
 }
 
 .cta {
@@ -226,9 +227,36 @@ h1 {
   #logo {
     grid-area: logo
   }
-  
+  /* RESPONSIVE NAV BAR UL */
   ul {
-    display: none;
+    background-color: #fff;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    position: fixed;
+    top: 120px;
+    left: 20px;
+    width: calc(100% - 60px);
+    transform: translateX(120%);
+    z-index: 100;
+    transition: transform 0.4s ease;
+    font-size: 1.1em;
+    line-height: 30%;
+  }
+
+  .show-nav ul {
+    transform: translateX(0);
+  }
+
+  ul li {
+    margin: 30px 40px;
+    text-align: center;
+
+  }
+
+  .menu-divider {
+    height: 1px;
+    width: 95%;
+    margin: 0;
   }
 
   #mobile-menu-btn {
@@ -238,7 +266,24 @@ h1 {
     justify-self: end;
   }
 
-  #mobile-menu-btn .icon-close {
+  #mobile-menu-btn:active,
+  #mobile-menu-btn:hover {
+    cursor: pointer;
+  }
+  /* Untoggled MOBILE NAV */
+  .icon-close {
+    display: none;
+  }
+
+  .icon-hamburger {
+    display: block;
+  }
+  /* TOGGLED MOBILE NAV */
+  .show-nav .icon-close {
+    display: block;
+  }
+
+  .show-nav .icon-hamburger {
     display: none;
   }
   
@@ -283,6 +328,7 @@ h1 {
     padding: 0 15% 0 0;
     font-size: 20px;
     align-self: start;
+    justify-self: start;
   }
   
   .cta {
@@ -305,7 +351,4 @@ h1 {
     letter-spacing: 2px;
     font-size: 16px;
   }
-
-
-
 }
